@@ -7,6 +7,23 @@ describe('Test environment', () => {
 describe('Dashboard user flows', () => {
 
   beforeEach(() => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/reservations',
+      [
+        {
+          id: 1,
+          name: 'Christie',
+          date: '12/29',
+          time: '7:00',
+          number: 12
+        }, {
+          id: 7,
+          name: 'Robbie',
+          date: '6/5',
+          time: '5:30',
+          number: 2
+        }
+      ]
+    )
     cy.visit('http://localhost:3000/');
   });
 
