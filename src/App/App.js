@@ -22,8 +22,10 @@ class App extends Component {
     return data;
   }
 
-  componentDidMount() {
-    this.setState({ reservations: this.fetchData('') });
+  async componentDidMount () {
+    let fetchedData = await this.fetchData('');
+
+    this.setState({ reservations: fetchedData });
   }
 
   render() {
