@@ -3,6 +3,13 @@ import './App.css';
 import Reservations from '../Reservations/Reservations';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      reservations: []
+    }
+  }
+  
   render() {
     return (
       <div className="App">
