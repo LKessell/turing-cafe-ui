@@ -17,9 +17,13 @@ class App extends Component {
       console.error(response.message)
     }
 
-    let data = response.json();
+    let data = await response.json();
 
     return data;
+  }
+
+  componentDidMount() {
+    this.setState({ reservations: this.fetchData('') });
   }
 
   render() {
@@ -29,7 +33,7 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
-        <Reservations />
+        <Reservations reservations={this.state.reservations}/>
       </div>
     )
   }
