@@ -1,9 +1,14 @@
 import './Reservations.css';
 import React from 'react';
+import ReservCard from '../ReservCard/ReservCard';
 
-const Reservations = () => {
+const Reservations = ({ reservations }) => {
+  const reservCards = reservations.map(reservation => <ReservCard />);
+
   return (
-    <h2>Reservations Here</h2>
+    <section className='reserv-container'>
+      {reservCards}
+    </section>
   )
 }
 
