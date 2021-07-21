@@ -12,6 +12,7 @@ class App extends Component {
   }
 
   addReservation = newReservation => {
+    this.postData(newReservation);
     this.setState({ reservations: [newReservation, ...this.state.reservations] });
   }
 
@@ -25,6 +26,18 @@ class App extends Component {
     let data = await response.json();
 
     return data;
+  }
+
+  postData = newReservation => {
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newReservation)
+    };
+
+    fetch('http://localhost:3001/api/v1/reservations', options)
+      .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   async componentDidMount () {
