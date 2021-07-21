@@ -9,7 +9,19 @@ class App extends Component {
       reservations: []
     }
   }
-  
+
+  fetchData = async (endpoint) => {
+    let response = await fetch(`http://localhost:3001/api/v1/reservations${endpoint}`);
+
+    if (!response.ok) {
+      console.error(response.message)
+    }
+
+    let data = response.json();
+
+    return data;
+  }
+
   render() {
     return (
       <div className="App">
