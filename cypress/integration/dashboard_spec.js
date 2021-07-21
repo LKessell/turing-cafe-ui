@@ -23,7 +23,16 @@ describe('Dashboard user flows', () => {
           number: 2
         }
       ]
-    )
+    );
+
+    cy.intercept('POST', 'http://localhost:3001/api/v1/reservations', {
+      id: 7435839,
+      name: 'Lauren',
+      date: '6/18',
+      time: '6:30',
+      number: 4
+    });
+
     cy.visit('http://localhost:3000/');
   });
 
