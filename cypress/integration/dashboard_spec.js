@@ -21,4 +21,12 @@ describe('Dashboard user flows', () => {
     cy.get('button').should('be.visible');
   });
 
+  it('When typing in an input, its value should be updated', () => {
+    cy.get('input[name="name"]').type('Lauren')
+      .should('have.value', 'Lauren');
+
+    cy.get('input[name="date"]').type('6/18')
+      .should('have.value', '6/18');
+  });
+
 });
