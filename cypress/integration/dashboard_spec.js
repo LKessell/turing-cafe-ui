@@ -3,3 +3,11 @@ describe('Test environment', () => {
     expect(true).to.equal(true);
   });
 });
+
+describe('Dashboard user flows', () => {
+
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/');
+  });
+
+});
