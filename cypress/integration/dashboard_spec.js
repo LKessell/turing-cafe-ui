@@ -16,4 +16,9 @@ describe('Dashboard user flows', () => {
     cy.get('.reserv-card').contains('Robbie');
   });
 
+  it('Should have a form to submit new reservations', () => {
+    cy.get('input').should('be.visible');
+    cy.get('button').should('be.visible');
+  });
+
 });
