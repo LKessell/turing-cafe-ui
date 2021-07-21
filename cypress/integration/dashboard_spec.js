@@ -66,6 +66,8 @@ describe('Dashboard user flows', () => {
       .should('contain', '6/18')
       .should('contain', '6:30')
       .should('contain', '4')
+    cy.get('input[name="name"]').should('have.value', '')
+    cy.get('input[name="time"]').should('have.value', '')
   });
 
 });
