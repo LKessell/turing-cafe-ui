@@ -1,9 +1,14 @@
 import './ReservCard.css';
 import React from 'react';
 
-const ReservCard = () => {
+const ReservCard = ({ id, name, date, time, number }) => {
   return (
-    <h3>I'm a little card</h3>
+    <article className='reserv-card'>
+      <h3>{name}</h3>
+      <p>{date}</p>
+      <p>{time} pm</p>
+      <p>Number of Guests: {number}</p>
+    </article>
   )
 }
 
