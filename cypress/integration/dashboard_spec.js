@@ -29,4 +29,17 @@ describe('Dashboard user flows', () => {
       .should('have.value', '6/18');
   });
 
+  it('Should be able to add a new reservation by filling out the form, then clicking the submit button', () => {
+    cy.get('input[name="name"]').type('Lauren')
+    cy.get('input[name="date"]').type('6/18')
+    cy.get('input[name="time"]').type('6:30')
+    cy.get('input[name="number"]').type('4')
+    cy.get('.reserv-card').should('not.contain', 'Lauren')
+    cy.get('button').click()
+    cy.get('.reserv-card').first().should('contain', 'Lauren')
+      .should('contain', '6/18')
+      .should('contain', '6:30')
+      .should('contain', '4')
+  });
+
 });
