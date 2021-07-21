@@ -13,7 +13,6 @@ class App extends Component {
 
   addReservation = newReservation => {
     this.postData(newReservation);
-    this.setState({ reservations: [newReservation, ...this.state.reservations] });
   }
 
   fetchData = async (endpoint) => {
@@ -37,7 +36,7 @@ class App extends Component {
 
     fetch('http://localhost:3001/api/v1/reservations', options)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => this.setState({ reservations: [data, ...this.state.reservations]}))
   }
 
   async componentDidMount () {
